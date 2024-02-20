@@ -347,12 +347,12 @@ def AvgBooksRatings(catalog):
     """
     # TODO implementar la mascara recursiva del calculo del promedio (parte 2)
     books = catalog.get("books", [])
-    recursive_average = recursiveAvgBooksRating(books, 0, len(books))
+    recursive_average = recursiveAvgBooksRating(books, 0, lt.size(books))
     iterative_average = iterativeAvgBooksRating(catalog)
     final_average = (recursive_average + iterative_average) / 2
     
     return final_average
-
+#books size para usar en len
 
 def recursiveAvgBooksRating(books, idx, n):
     """recursiveAvgBooksRating ejecuta recursivamente el promedio de ratings
@@ -371,7 +371,7 @@ def recursiveAvgBooksRating(books, idx, n):
     if n == 0:
         return 0
     else:
-        return (books[i]["average_rating"] + recursiveAvgBooksRating(books, i + 1, n - 1) * (n - 1)) / n
+        return (books[idx]["average_rating"] + recursiveAvgBooksRating(books, idx + 1, n - 1) * (n - 1)) / n
 
 
 def iterativeAvgBooksRating(catalog):
@@ -388,7 +388,7 @@ def iterativeAvgBooksRating(catalog):
     # TODO implementar iterativamente el calculo del promedio (parte 2)
     books = catalog.get("books", [])
     total_ratings = 0
-    total_books = len(books)
+    total_books = lt.size(books)
     
     for book in books:
         total_ratings += book["average_rating"]
