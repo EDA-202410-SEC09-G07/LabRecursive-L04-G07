@@ -17,6 +17,7 @@ puede ser muy simple lo que se tiene que hacer, por ende no se tiene que descomp
 
 a. ¿Cuál es la causa del error “RecursionError: maximum recursion Depth 
 exceded” al ejecutar el código? 
+
 La causa de este error ocurre cuando una función se llama recursivamente tantas veces que excede el límite de recursión permitido. 
 Este límite existe porque  pueden surgir otros problemas en el computador como fallos en el sistema.
 
