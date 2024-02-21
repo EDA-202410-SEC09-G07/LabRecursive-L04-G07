@@ -376,13 +376,19 @@ def AvgBooksRatings(catalog):
         float: promedio de ratings de los libros en el catalogo
     """
     # TODO implementar la mascara recursiva del calculo del promedio (parte 2)
-    books = catalog.get("books", [])
-    recursive_average = recursiveAvgBooksRating(books, 0, lt.size(books))
-    iterative_average = iterativeAvgBooksRating(catalog)
-    final_average = (recursive_average + iterative_average) / 2
-    
-    return final_average
-#books size para usar en len
+    books = catalog["books"]
+    total_ratings = 0
+    total_books = lt.size(books)
+
+    for i in range(1, total_books + 1):
+        book = lt.getElement(books, i)
+        total_ratings += book["average_rating"]
+    if total_books > 0:
+        avg_rating = total_ratings / total_books
+    else:
+        avg_rating = 0
+
+    return avg_rating
 
 def recursiveAvgBooksRating(books, idx, n):
     """recursiveAvgBooksRating ejecuta recursivamente el promedio de ratings
@@ -400,8 +406,14 @@ def recursiveAvgBooksRating(books, idx, n):
     # TODO implementar recursivamente el calculo del promedio (parte 2)
     if n == 0:
         return 0
-    else:
-        return (books[idx]["average_rating"] + recursiveAvgBooksRating(books, idx + 1, n - 1) * (n - 1)) / n
+    if n == 1:
+        return books[idx]["average_rating"]
+    
+    mid = n // 2
+    left_avg = recursiveAvgBooksRating(books, idx, mid)
+    right_avg = recursiveAvgBooksRating(books, idx + mid, n - mid)
+    
+    return (left_avg * mid + right_avg * (n - mid)) / n
 
 
 def iterativeAvgBooksRating(catalog):
@@ -416,17 +428,18 @@ def iterativeAvgBooksRating(catalog):
         float: promedio de ratings de los libros en la lista
     """
     # TODO implementar iterativamente el calculo del promedio (parte 2)
-    books = catalog.get("books", [])
-    total_ratings = 0
+    books = catalog["books"]
     total_books = lt.size(books)
-    
-    for book in books:
-        total_ratings += book["average_rating"]
     
     if total_books == 0:
         return 0
-    else:
-        return total_ratings / total_books
+    
+    total_ratings = 0
+    for i in range(1, total_books + 1):
+        book = lt.getElement(books, i)
+        total_ratings += book["average_rating"]
+    avg_rating = total_ratings / total_books
+    return avg_rating
 
 
 def filterBooksByRating(catalog, low, high):
