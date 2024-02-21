@@ -1,0 +1,37 @@
+A)¿Qué modificaciones debería hacer en la librería DISCLib para crear un nuevo algoritmo 
+de ordenamiento?, especifique archivos, rutas de y encabezados de las posibles 
+funciones a implementar
+
+Para esto se necesita ir a la libreria de DISCLib, 
+e ir a quicksort y se condiciona para que quicksort se llame a sí mismo.
+
+b. ¿Cómo se relaciona la opción 10 del menú en el view.py con las funciones principales 
+(opciones 7, 8 y 9) dentro del model.py?
+Se relacionan ya que la opción 10 decide si se implementan recursivas en las operaciones a realizar
+
+
+c. ¿Por qué se usa la máscara en las funciones propuestas?, ¿siempre es necesaria?, 
+argumente su respuesta.
+se usa para otorgar una interfaz clara de lo que se quiere ver. No siemnpre es necesaria ya que en algunos casos
+puede ser muy simple lo que se tiene que hacer, por ende no se tiene que descomponer.
+
+a. ¿Cuál es la causa del error “RecursionError: maximum recursion Depth 
+exceded” al ejecutar el código? 
+La causa de este error ocurre cuando una función se llama recursivamente tantas veces que excede el límite de recursión permitido. 
+Este límite existe porque  pueden surgir otros problemas en el computador como fallos en el sistema.
+
+b. ¿Cuál es la causa por la que termina anormalmente el programa? 
+El programa termina de manera anormal porque la función se llama a sí misma sin llegar a un punto donde pueda detenerse y esto hace que 
+el programa se detenga de manera forzada para evitar problemas mayores.
+
+c. ¿Qué es lo que hacen las modificaciones del main al incluir el uso de threading en la 
+ejecución del código?, utilice el código del Segmento 10 y la documentación oficial de Python para argumentar su respuesta
+
+Segun python, estas modificaciones pueden ser necesarias para optimizar el rendimiento o evitar problemas como 
+desbordamientos de pila en aplicaciones que hacen un uso intensivo de hilos
+
+d. ¿Qué diferencias existen entre exceder el límite de recursión y la terminación anormal 
+del programa?
+ Mientras que exceder el límite de recursión generalmente ocurre debido a un diseño incorrecto o ineficiente del
+ algoritmo recursivo, la terminación anormal del programa puede ser causada por una variedad de problemas, incluidos errores de lógica, 
+ fallos en el sistema, o accesos indebidos a la memoria.

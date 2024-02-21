@@ -326,7 +326,6 @@ def recursiveSearchBookByISBN(books, bookisbn, low, high):
             return recursiveSearchBookByISBN(books, bookisbn, low, mid - 1)
     else:
         return None
-    pass
 
 
 def iterativeSearchBookByISBN(catalog, bookid):
@@ -359,7 +358,6 @@ def iterativeSearchBookByISBN(catalog, bookid):
             high = mid - 1
 
     return None
-    pass
 
 
 # funciones para calcular estadisticas
@@ -474,7 +472,7 @@ def recursiveFilterBooksByRating(books, answer, low, high, idx=1):
     Returns:
         ADT List: lista de libros filtrados
     """
-    if idx == len(books):
+    if idx == lt.size(books):
         return answer
     
     book = books[idx]
